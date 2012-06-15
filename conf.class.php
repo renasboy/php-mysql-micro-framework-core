@@ -14,7 +14,10 @@ class conf {
 
     private function _init () {
         if ($this->_data === []) {
-            // TODO check if file exists
+            if (!file_exists($this->_file)) {
+                // throw 500 since we do not have error
+                throw new \Exception('Conf file does not exist', 500);
+            }
             $this->_data = parse_ini_file($this->_file, $this->_multi);
         }
     }

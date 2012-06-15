@@ -24,7 +24,6 @@ class logger {
         $this->_log($message, $this->_debug, LOG_DEBUG);
     }
 
-    // TODO add different identifier per level as ## and !!
     private function _log ($message, $file, $level) {
         if ($this->_level === null || $this->_level < $level) {
             return false;

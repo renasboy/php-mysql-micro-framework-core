@@ -52,40 +52,6 @@ class request {
         }
     }
 
-    public function get_unique () {
-        $resource_uri   = explode('/', $this->resource_uri());
-        $unique         = [];
-        foreach ($resource_uri as $param) {
-            $unique[$param] = $this->get($param);
-        }
-        return $unique;
-    }
-
-    // determine if the request is for a
-    // unique resource. POST, PUT and DELETE
-    // should use a unique resource, GET is
-    // optional, if unique, only one result
-    // is returned.
-    public function is_unique () {
-        // TODO check if we can just do it here
-        //if ($this->get('id')) {
-        //    return true;
-        //}
-        $resource_uri   = explode('/', $this->resource_uri());
-        foreach ($resource_uri as $param) {
-            if (!$this->get($param)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public function validate_unique () {
-        if (!$this->is_unique()) {
-            $this->_error->bad_request('Request of method ' . $this->method() . ' must identify a unique resource');
-        }
-    }
-
     public function uri () {
         $uri = null;
         if (array_key_exists('REQUEST_URI', $this->_server)) {
