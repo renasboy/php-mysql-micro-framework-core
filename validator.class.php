@@ -18,7 +18,8 @@ class validator {
 
     public function validate ($method, $value, $option = [], $extra = []) {
         // TODO check a better way to do this, returning the failure for logging
-        $this->_results[$method . '(' . print_r($value, 1) . ',' . print_r($option, 1) . ')'] = $this->$method($value, $option, $extra);
+        $index  = sprintf('%s(%s, %s, %s)', $method, print_r($value, 1), print_r($option, 1), print_r($extra, 1));
+        $this->_results[$index] = $this->$method($value, $option, $extra);
     }
 
     public function is_in_list ($value, $list) {
