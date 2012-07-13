@@ -10,8 +10,8 @@ class error {
         'payment_required'      => 402,
         'forbidden'             => 403,
         'not_found'             => 404,
-        'precondition_failed'   => 412,
         'method_not_allowed'    => 405,
+        'precondition_failed'   => 412,
         'internal_server_error' => 500,
         'not_implemented'       => 501
     ];

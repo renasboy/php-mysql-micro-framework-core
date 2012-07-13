@@ -81,6 +81,6 @@ class validator {
     }
 
     public function is_error_code ($value) {
-        return in_array($value, [400, 401, 402, 403, 404, 405, 500, 501]);
+        return in_array($value, [400, 401, 402, 403, 404, 405, 412, 500, 501]);
     }
 }
