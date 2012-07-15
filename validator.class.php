@@ -16,10 +16,11 @@ class validator {
         return false;
     }
 
-    public function validate ($method, $value, $option = [], $extra = []) {
+    // TODO fix the passing options, also related to next TODO
+    public function validate ($method, $value, $option = [], $extra = [], $extra2 = []) {
         // TODO check a better way to do this, returning the failure for logging
         $index  = sprintf('%s(%s, %s, %s)', $method, print_r($value, 1), print_r($option, 1), print_r($extra, 1));
-        $this->_results[$index] = $this->$method($value, $option, $extra);
+        $this->_results[$index] = $this->$method($value, $option, $extra, $extra2);
     }
 
     public function is_in_list ($value, $list) {
